@@ -1,0 +1,59 @@
+version: "3.9"
+
+networks:
+  net-cloud:
+    name: net-cloud
+    driver: bridge
+
+services:
+  db-cloud:
+    image: mysql
+    container_name: db-cloud
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    expose:
+      - "3307"
+    ports:
+      - "3307:3306"
+    networks:
+      - net-cloud
+    environment:
+      MYSQL_DATABASE: db_cloud
+      MYSQL_ALLOW_EMPTY_PASSWORD: ok
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: usrcloud
+      MYSQL_PASSWORD: Passw0rd
+      MYSQL_ROOT_HOST: '%'
+
+  backend-nest:
+    depends_on:
+      - db-cloud
+    image: bk-nest
+    container_name: api-nest
+    restart: unless-stopped
+    build:
+      context: ./backend_nest
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - net-cloud
+    environment:
+      DB_HOST: db-cloud
+    volumes:
+      - ./backend_nest:/usr/src/app
+      - /usr/src/app/node_modules/
+
+  frontend-vue:
+    depends_on:
+        - backend-nest
+    image: fn-vue
+    container_name: app-vue
+    restart: unless-stopped
+    build:
+      context: ./frontend_vue
+      dockerfile: Dockerfile
+    ports:
+      - 85:80
+    volumes:
+      - /usr/src/app/node_modules/
