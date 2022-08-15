@@ -43,3 +43,15 @@ En el navegador web verificar el acceso a:
 http://<IP_ADDRESS>:3000/apidoc
 
 http://<IP_ADDRESS>:85
+
+## Instalación Gravitee
+
+$ mkdir ~/gravitee
+
+$ cd ~/gravitee
+
+$ curl -L https://raw.githubusercontent.com/gravitee-io/gravitee-docker/master/apim/3.x/docker-compose.yml -o "docker-compose.yml"
+
+$ docker-compose up -d
+
+Acceder a http://<IP_ADDRESS>:8084 con admin admin

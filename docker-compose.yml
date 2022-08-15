@@ -54,6 +54,6 @@ services:
       context: ./frontend_vue
       dockerfile: Dockerfile
     ports:
-      - 85:80
+      - 85:85
     volumes:
       - /usr/src/app/node_modules/
