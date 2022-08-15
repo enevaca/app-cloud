@@ -48,41 +48,39 @@ http://<IP_ADDRESS>:85
 
 sudo su
 
-mkdir -p /gravitee/mongodb
+mkdir /gravitee
 
-mkdir -p /gravitee/mongodb/data
+mkdir /gravitee/mongodb
 
-mkdir -p /gravitee/elasticsearch
+mkdir /gravitee/mongodb/data
 
-mkdir -p /gravitee/elasticsearch/data
+mkdir /gravitee/elasticsearch
 
-mkdir -p /gravitee/apim-gateway
+mkdir /gravitee/elasticsearch/data
 
-mkdir -p /gravitee/apim-gateway/plugins
+mkdir /gravitee/apim-gateway
 
-mkdir -p /gravitee/apim-gateway/logs
+mkdir /gravitee/apim-gateway/plugins
 
-mkdir -p /gravitee/apim-management-api
+mkdir /gravitee/apim-gateway/logs
 
-mkdir -p /gravitee/apim-management-api/plugins
+mkdir /gravitee/apim-management-api
 
-mkdir -p /gravitee/apim-management-api/logs
+mkdir /gravitee/apim-management-api/plugins
 
-mkdir -p /gravitee/apim-management-ui
+mkdir /gravitee/apim-management-api/logs
 
-mkdir -p /gravitee/apim-management-ui/logs
+mkdir /gravitee/apim-management-ui
 
-mkdir -p /gravitee/apim-portal-ui
+mkdir /gravitee/apim-management-ui/logs
 
-mkdir -p /gravitee/apim-portal-ui/logs
+mkdir /gravitee/apim-portal-ui
 
-sudo chown -R $USER:$USER /gravitee
+mkdir /gravitee/apim-portal-ui/logs
 
-$ mkdir ~/gravitee
+chown -R $USER:$USER /gravitee & exit
 
-$ cd ~/gravitee
-
-$ curl -L https://raw.githubusercontent.com/gravitee-io/gravitee-docker/master/apim/3.x/docker-compose.yml -o "docker-compose.yml"
+$ cd gravitee   // Es el directorio dentro de este proyecto
 
 $ docker-compose up -d
 
