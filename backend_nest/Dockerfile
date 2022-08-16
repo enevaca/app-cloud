@@ -6,5 +6,5 @@ RUN npm ci
 COPY . .
 RUN npm run build
 RUN npm ci --omit=dev && npm cache clean --force
-EXPOSE 3000
+EXPOSE 4000
 CMD ["node", "dist/main.js"]
