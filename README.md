@@ -21,8 +21,6 @@ $ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plug
 
 $ sudo usermod -aG docker $USER
 
-$ sudo usermod -aG docker $USER
-
 $ newgrp docker
 
 $ docker version
