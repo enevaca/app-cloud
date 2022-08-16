@@ -25,7 +25,7 @@ $ newgrp docker
 
 $ docker version
 
-## Ejecutar los contenedores
+## Ejecutar los contenedores para correr la BD, Backend y Frontend
 $ git clone https://github.com/enevaca/app-cloud.git
 
 $ cd app-cloud
