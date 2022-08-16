@@ -78,7 +78,9 @@ mkdir /gravitee/apim-portal-ui
 
 mkdir /gravitee/apim-portal-ui/logs
 
-chown -R $USER:$USER /gravitee & exit
+exit 
+
+$ sudo chown -R $USER:$USER /gravitee
 
 $ cd gravitee   // Es el directorio dentro de este proyecto
 
