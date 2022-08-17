@@ -1,6 +1,6 @@
 # App Cloud
 
-## Instalación de Docker en Ubuntu 22.04
+## Instalación de Docker
 https://docs.docker.com/engine/install/ubuntu/
 
 https://www.linuxtechi.com/install-use-docker-on-ubuntu/
@@ -46,7 +46,7 @@ $ ip addr
 
 En el navegador web verificar el acceso a:
 
-http://<IP_ADDRESS>:3000/apidoc
+http://<IP_ADDRESS>:4000/apidoc
 
 http://<IP_ADDRESS>:85
 
