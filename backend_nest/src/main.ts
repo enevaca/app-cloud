@@ -1,7 +1,9 @@
-import { ValidationPipe } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+
+const logger = new Logger('NestApplication');
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -19,7 +21,12 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('apidoc', app, document, { swaggerOptions: { filter: true, displayRequestDuration: true } });
 
-  await app.listen(process.env.PORT || 3000);
-  console.log(`App corriendo en ${await app.getUrl()}/apidoc`);
+  await app.listen(process.env.PORT ||4000);
+  logger.verbose(`App corriendo en ${await app.getUrl()}/apidoc`);
 }
-bootstrap();
+
+(async (): Promise<void> => {
+  await bootstrap();
+})().catch((error: Error) => {
+  logger.error(`Nest application error: ${error.message}`);
+});
