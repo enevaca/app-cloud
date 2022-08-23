@@ -24,6 +24,7 @@
     "node": "16.16.0"
   },
   "dependencies": {
+    "@grpc/grpc-js": "^1.6.10",
     "@nestjs/common": "^8.4.7",
     "@nestjs/config": "^2.1.0",
     "@nestjs/core": "^8.4.7",
@@ -33,6 +34,10 @@
     "@nestjs/platform-express": "^8.4.7",
     "@nestjs/swagger": "^5.2.1",
     "@nestjs/typeorm": "^8.1.4",
+    "@opentelemetry/api": "^1.1.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.31.2",
+    "@opentelemetry/exporter-trace-otlp-grpc": "^0.31.0",
+    "@opentelemetry/sdk-node": "^0.31.0",
     "bcrypt": "^5.0.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",

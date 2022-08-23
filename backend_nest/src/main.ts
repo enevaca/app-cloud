@@ -3,9 +3,12 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
+const tracer = require('./tracer')
 const logger = new Logger('NestApplication');
 
 async function bootstrap() {
+  await tracer.start();
+  
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
   app.useGlobalPipes(new ValidationPipe());
@@ -21,7 +24,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('apidoc', app, document, { swaggerOptions: { filter: true, displayRequestDuration: true } });
 
-  await app.listen(process.env.PORT ||4000);
+  await app.listen(process.env.PORT || 4000);
   logger.verbose(`App corriendo en ${await app.getUrl()}/apidoc`);
 }
 
