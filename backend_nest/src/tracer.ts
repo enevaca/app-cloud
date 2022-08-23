@@ -10,7 +10,8 @@ const grpc = require('@grpc/grpc-js');
 // configure the SDK to export telemetry data to the console
 // enable all auto-instrumentations from the meta package
 const exporterOptions = {
-  url: 'http://localhost:4317',
+  //url: 'http://localhost:4317',
+  url: 'http://5.189.181.112:4317',
   credentials: grpc.credentials.createInsecure(),
 }
 const traceExporter = new OTLPTraceExporter(exporterOptions);

@@ -93,3 +93,11 @@ $ cd gravitee   // Es el directorio dentro de este proyecto
 $ docker-compose up -d
 
 Acceder a http://<IP_ADDRESS>:8084 con admin admin
+
+## Instalación SigNoz para usar OpenTelemetry
+
+https://signoz.io/blog/opentelemetry-nestjs/
+
+$ git clone -b main https://github.com/SigNoz/signoz.git & cd signoz/deploy/ & ./install.sh
+
+Luego de instalarse, acceder a http://localhost:3301 y crearse una cuenta
