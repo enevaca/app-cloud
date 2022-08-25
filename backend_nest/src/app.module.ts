@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AlbumModule } from './album/album.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { InterpreteModule } from './interprete/interprete.module';
-import { GeneroModule } from './genero/genero.module';
-import { AlbumModule } from './album/album.module';
-import { CancionModule } from './cancion/cancion.module';
-import { UsuarioModule } from './usuario/usuario.module';
 import { AuthModule } from './auth/auth.module';
+import { CancionModule } from './cancion/cancion.module';
+import { GeneroModule } from './genero/genero.module';
+import { InterpreteModule } from './interprete/interprete.module';
+import { UsuarioModule } from './usuario/usuario.module';
 
 @Module({
   imports: [
@@ -33,4 +33,4 @@ import { AuthModule } from './auth/auth.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

@@ -3,12 +3,12 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
-const tracer = require('./tracer')
+const tracer = require('./tracer');
 const logger = new Logger('NestApplication');
 
 async function bootstrap() {
   await tracer.start();
-  
+
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
   app.useGlobalPipes(new ValidationPipe());

@@ -1,21 +1,24 @@
 'use strict'
 
-const opentelemetry = require('@opentelemetry/sdk-node');
-const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
-const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-grpc');
-const { Resource } = require('@opentelemetry/resources');
-const { SemanticResourceAttributes } = require('@opentelemetry/semantic-conventions');
-const grpc = require('@grpc/grpc-js');
+import { NodeSDK } from '@opentelemetry/sdk-node';
+import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node';
+import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc';
+import { Resource } from '@opentelemetry/resources';
+import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
+import { credentials } from '@grpc/grpc-js';
+import { ZipkinExporter } from '@opentelemetry/exporter-zipkin';
 
 // configure the SDK to export telemetry data to the console
 // enable all auto-instrumentations from the meta package
 const exporterOptions = {
-  //url: 'http://localhost:4317',
-  url: 'http://5.189.181.112:4317',
-  credentials: grpc.credentials.createInsecure(),
+  //url: 'http://localhost:4317', // SigNoz
+  url: 'http://localhost:9411', // Zipkin
+  // url: 'http://5.189.181.112:4317',
+  credentials: credentials.createInsecure(),
 }
-const traceExporter = new OTLPTraceExporter(exporterOptions);
-const sdk = new opentelemetry.NodeSDK({
+//const traceExporter = new OTLPTraceExporter(exporterOptions);
+const traceExporter = new ZipkinExporter(exporterOptions);
+const sdk = new NodeSDK({
   traceExporter,
   instrumentations: [getNodeAutoInstrumentations()],
   resource: new Resource({
