@@ -58,6 +58,6 @@ services:
     networks:
       - net-cloud
     environment:
-      URL_ENDPOINT: api-nest
+      URL_ENDPOINT: backend-nest
     volumes:
       - /usr/src/app/node_modules/
