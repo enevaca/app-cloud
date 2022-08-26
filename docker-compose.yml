@@ -55,5 +55,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - 85:85
+    environment:
+      VITE_BASE_URL_ENDPOINT: backend-nest/api
     volumes:
       - /usr/src/app/node_modules/
