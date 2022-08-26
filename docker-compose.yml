@@ -58,6 +58,6 @@ services:
     networks:
       - net-cloud
     environment:
-      VITE_BASE_URL_ENDPOINT: bk-nest/api
+      VITE_BASE_URL_ENDPOINT: bk-nest
     volumes:
       - /usr/src/app/node_modules/
