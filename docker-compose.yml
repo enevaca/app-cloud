@@ -55,6 +55,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - 85:85
+    networks:
+      - net-cloud
     environment:
       VITE_BASE_URL_ENDPOINT: backend-nest/api
     volumes:
